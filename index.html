@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -22,7 +20,8 @@
                     },
                     colors: {
                         'green': "#142C16",
-                        'yellowMedium': "#FEBD05"
+                        'yellowMedium': "#FEBD05",
+                        'bgGreen': "#2C5C30"
                     },
                     backgroundColor: {
                     }
@@ -34,6 +33,9 @@
         *{
             font-family: 'Inter', sans-serif;
         }
+        .courier{
+            font-family: 'Courier Prime', monospace;
+        }
         .bg {
             background-image: url('./Images/Common/Bg.png');
             background-repeat: no-repeat;
@@ -42,7 +44,8 @@
             top: 0;
             right: 0;
             height: 100%;
-            width: 95%;
+            width: 97.5%;
+            z-index: 0;
         }
 
         ::placeholder {
@@ -53,17 +56,94 @@
         .drop-shadow{
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
         }
+        section{
+            z-index: 20;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 40;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #FEBD05;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #142C16;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            z-index: 30;
+            padding: 20px;
+            transition: left 0.3s ease;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            color: #FEBD05;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .sidebar {
+                display: block;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <main class="bg-green min-h-[500vh] relative pl-[5%]">
-        <div class="bg"></div>
-        <header class="pt-12 px-6 flex justify-between items-center z-20">
+    <main class="bg-green min-h-[500vh] relative pl-[3.5%]">
+        <div class="bg opacity-70 lg:opacity-100"></div>
+        <header class="pt-12 px-4 flex justify-between items-center z-20">
             <div class="logo">
-                <img src="./Images/Common/Taksaal.png" alt="">
+                <img src="./Images/Common/Taksaal.png" alt="" class="h-6">
             </div>
-            <div class="menu bg-yellowMedium px-2 rounded-[45px] py-1 flex items-center z-20">
+            <div class="hidden menu bg-yellowMedium px-2 rounded-[45px] py-1 lg:flex items-center z-20">
                 <!-- Search bar -->
                 <div class="search flex items-center bg-[#142C16] bg-opacity-[35%] p-1 rounded-3xl mr-2">
                     <div class="bg-green h-10 w-10 rounded-full grid place-items-center">
@@ -93,8 +173,159 @@
                     </li>
                 </ul>
             </div>
+            <div class="hamburger lg:hidden" onclick="toggleSidebar()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </header>
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">Home</a></li>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">LeaderBoard</a></li>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">Dictionary</a></li>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">Login</a></li>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">Profile</a></li>
+            </ul>
+        </div>
+        <section class="w-full px-4 z-20 mt-10 lg:mt-0">
+            <div class="flex md:items-center justify-between">
+                <div class="flex flex-col items-center lg:items-start w-full md:w-1/2 mt-6 lg:mt-0">
+                    <h1 class="text-yellowMedium text-5xl md:text-4xl lg:text-7xl text-center lg:text-left lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">Unveiling the Richness of Punjabi Language</h1>
+                    <button class="hidden md:block bg-yellowMedium text-green font-bold px-8 py-4 w-[300px] my-12 flex items-center justify-between rounded-[60px] transition-all hover:bg-opacity-60 cursor-poitner z-20">
+                        Add new word to dictionary
+                        <!-- right arrow font awesome icon -->
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div class="stats hidden md:grid grid-cols-1 md:grid-cols-3 border border-yellowMedium py-6 w-full lg:w-[550px] rounded-[35px] px-4 relative md:pt-6 lg:pt-12">
+                        <p class="absolute text-[#ffffffba] bg-green top-0 left-12 px-2 -translate-y-1/2 text-xs lg:text-lg font-light">Our Achievements since the creation</p>
+                        <div class="flex flex-col items-center justify-center">
+                            <h1 class="text-yellowMedium md:text-2xl lg:text-4xl font-regular">4,500</h1>
+                            <p class="text-white text-xs lg:text-lg opacity-75 font-light mt-2">Defined Words</p>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <h1 class="text-yellowMedium md:text-2xl lg:text-4xl font-regular">8000+</h1>
+                            <p class="text-white text-xs lg:text-lg opacity-75 font-light mt-2">Registered Users</p>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <h1 class="text-yellowMedium md:text-2xl lg:text-4xl font-regular">500k+</h1>
+                            <p class="text-white text-xs lg:text-lg opacity-75 font-light mt-2">Website Visits</p>
+                        </div>
+                    </div>
+                    
+                    <button class="bg-yellowMedium md:hidden text-green font-bold px-8 py-4 w-[300px] my-12 flex items-center justify-between rounded-[60px] transition-all hover:bg-opacity-60 cursor-poitner z-20">
+                        Add new word to dictionary
+                        <!-- right arrow font awesome icon -->
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="hidden md:grid w-[45%]">
+                    <img src="./Images/Home/Landing-img.png" alt="">
+                </div>
+            </div>
+            <h1 class="my-6 text-yellowMedium w-full text-5xl md:text-4xl lg:text-7xl text-center lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">Quick Bites</h1>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="w-full bg-bgGreen rounded-lg overflow-hidden shadow-xl">
+                    <!-- Header -->
+                    <div class="p-6 space-y-2 w-full flex flex-col items-center">
+                        <h1 class="text-white opacity-75 text-2xl tracking-wider courier tracking-widest border-b-2 pb-1">WORD OF THE DAY</h1>
+                        <p class="text-sm courier pt-1 text-white opacity-75 text-lg tracking-wider font-extrathin">17 July, 2024 | @maggi75</p>
+                    </div>
+            
+                    <!-- Image -->
+                    <div class="w-full aspect-[16/9] bg-[#d4b4a3] relative">
+                        <img src="/placeholder.svg?height=225&width=400" alt="Artistic illustration" class="w-full h-full object-cover">
+                    </div>
+            
+                    <!-- Word Section -->
+                    <div class="p-6 space-y-6">
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <h2 class="text-white text-4xl font-bold tracking-wide">tighubad</h2>
+                                <button class="text-white opacity-80 hover:opacity-100">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 012.728-2.728" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="text-gray-300 italic">noun | tig · hu · bad</p>
+                        </div>
+            
+                        <!-- Interaction Buttons -->
+                        <div class="flex items-center gap-4">
+                            <button class="flex items-center gap-2 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                                </svg>
+                                <span>628</span>
+                            </button>
+                            <button class="flex items-center gap-2 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018c.163 0 .326.02.485.06L17 4m-7 10v2a2 2 0 002 2h.095c.5 0 .905-.405.905-.905 0-.714.211-1.412.608-2.006L17 13V4m-7 10h2" />
+                                </svg>
+                                <span>128</span>
+                            </button>
+                            <button class="flex items-center text-white ml-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                            </button>
+                        </div>
+            
+                        <!-- Definition Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-yellow-500 text-xl font-bold">What It Means</h3>
+                            <div class="text-gray-200 space-y-2">
+                                <p><span class="font-semibold">transcriber, translator</span> ~ a person</p>
+                                <p class="pl-4">who translates written messages from one language to another.</p>
+                                <p class="pl-4">~ an electronic language translator</p>
+                            </div>
+                        </div>
+            
+                        <!-- Example Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-yellow-500 text-xl font-bold">Example</h3>
+                            <p class="text-gray-200">~ an electronic language translator</p>
+                        </div>
+            
+                        <!-- Tags -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#language</span>
+                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#punjabi</span>
+                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#noun</span>
+                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#slang</span>
+                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#person</span>
+                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#word</span>
+                        </div>
+            
+                        <!-- Source -->
+                        <div class="text-gray-400 text-sm">
+                            <span class="font-semibold">Source:</span>
+                            <a href="http://onlineslangdictionary.com/" class="text-blue-400 hover:underline">http://onlineslangdictionary.com/</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var hamburger = document.querySelector('.hamburger');
+            sidebar.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            var sidebar = document.getElementById('sidebar');
+            var hamburger = document.querySelector('.hamburger');
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 
 </html>
