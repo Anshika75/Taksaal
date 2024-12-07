@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -15,7 +21,8 @@
                     boxShadow: {
                     },
                     colors: {
-                        'green': "#142C16"
+                        'green': "#142C16",
+                        'yellowMedium': "#FEBD05"
                     },
                     backgroundColor: {
                     }
@@ -23,8 +30,71 @@
             }
         }
     </script>
+    <style>
+        *{
+            font-family: 'Inter', sans-serif;
+        }
+        .bg {
+            background-image: url('./Images/Common/Bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 95%;
+        }
+
+        ::placeholder {
+            color: white;
+            opacity: 1;
+            /* Firefox */
+        }
+        .drop-shadow{
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
+        }
+    </style>
 </head>
+
 <body>
-    <main class="bg-"></main>
+    <main class="bg-green min-h-[500vh] relative pl-[5%]">
+        <div class="bg"></div>
+        <header class="pt-12 px-6 flex justify-between items-center z-20">
+            <div class="logo">
+                <img src="./Images/Common/Taksaal.png" alt="">
+            </div>
+            <div class="menu bg-yellowMedium px-2 rounded-[45px] py-1 flex items-center z-20">
+                <!-- Search bar -->
+                <div class="search flex items-center bg-[#142C16] bg-opacity-[35%] p-1 rounded-3xl mr-2">
+                    <div class="bg-green h-10 w-10 rounded-full grid place-items-center">
+                        <i class="fas fa-search text-white opacity-[45%]"></i>
+                    </div>
+                    <div class="ml-2 relative w-56">
+                        <p class="absolute top-0 left-0 text-white opacity-[45%]">Search meaning of a word...</p>
+                        <input type="text" class="bg-transparent w-full border-none focus:outline-none" />
+                    </div>
+
+                </div>
+                <ul class="flex items-center">
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">Home</a>
+                    </li>
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">LeaderBoard</a>
+                    </li>
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">Dictionary</a>
+                    </li>
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">Login</a>
+                    </li>
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </main>
 </body>
+
 </html>
