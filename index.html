@@ -141,7 +141,7 @@
         <div class="bg opacity-70 lg:opacity-100"></div>
         <header class="pt-12 px-4 flex justify-between items-center z-20">
             <div class="logo">
-                <img src="./Images/Common/Taksaal.png" alt="" class="h-6">
+                <img src="./Images/Common/Taksaal.png" alt="" class="h-6 lg:h-auto">
             </div>
             <div class="hidden menu bg-yellowMedium px-2 rounded-[45px] py-1 lg:flex items-center z-20">
                 <!-- Search bar -->
@@ -223,85 +223,78 @@
                     <img src="./Images/Home/Landing-img.png" alt="">
                 </div>
             </div>
-            <h1 class="my-6 text-yellowMedium w-full text-5xl md:text-4xl lg:text-7xl text-center lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">Quick Bites</h1>
-            <div class="grid grid-cols-2 gap-6">
-                <div class="w-full bg-bgGreen rounded-lg overflow-hidden shadow-xl">
+            <h1 class="my-6 mb-12 text-yellowMedium w-full text-5xl md:text-4xl lg:text-7xl text-center lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">Quick Bites</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="w-full bg-bgGreen rounded-lg md:rounded-2xl overflow-hidden shadow-xl relative">
+                    <i class="fa-solid fa-flag text-white md:text-xl absolute top-2 right-2 md:top-4 md:right-4 opacity-75"></i>
                     <!-- Header -->
-                    <div class="p-6 space-y-2 w-full flex flex-col items-center">
-                        <h1 class="text-white opacity-75 text-2xl tracking-wider courier tracking-widest border-b-2 pb-1">WORD OF THE DAY</h1>
-                        <p class="text-sm courier pt-1 text-white opacity-75 text-lg tracking-wider font-extrathin">17 July, 2024 | @maggi75</p>
+                    <div class="p-2 md:p-6 space-y-2 w-full flex flex-col items-center mb-2 md:mb-0">
+                        <h1 class="text-white opacity-75 md:text-2xl tracking-wider courier tracking-widest border-b-2 pb-1">WORD OF THE DAY</h1>
+                        <p class="text-sm courier pt-1 text-white opacity-75 md:text-lg tracking-wider font-extrathin">17 July, 2024 | @maggi75</p>
                     </div>
             
                     <!-- Image -->
-                    <div class="w-full aspect-[16/9] bg-[#d4b4a3] relative">
-                        <img src="/placeholder.svg?height=225&width=400" alt="Artistic illustration" class="w-full h-full object-cover">
+                    <div class="w-full aspect-[16/9] relative px-2 md:px-6">
+                        <img src="./Images/Home/word.png" alt="Artistic illustration" class="w-full h-full object-cover">
                     </div>
             
                     <!-- Word Section -->
-                    <div class="p-6 space-y-6">
-                        <div class="space-y-2">
+                    <div class="p-2 md:p-6 space-y-6 flex flex-col items-center">
+                        <div class="space-y-2 flex flex-col items-center">
                             <div class="flex items-center gap-2">
-                                <h2 class="text-white text-4xl font-bold tracking-wide">tighubad</h2>
-                                <button class="text-white opacity-80 hover:opacity-100">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 012.728-2.728" />
-                                    </svg>
+                                <h2 class="text-white text-4xl font-black drop-shadow tracking-wide">tighubad</h2>
+                                <button class="text-white transition-all cursor-pointer hover:opacity-75 z-20">
+                                    <i class="fas fa-volume-up"></i>
                                 </button>
                             </div>
-                            <p class="text-gray-300 italic">noun | tig · hu · bad</p>
+                            <p class="text-white opacity-75 font-light"><span class="italic">noun</span> | tig · hu · bad</p>
                         </div>
             
                         <!-- Interaction Buttons -->
                         <div class="flex items-center gap-4">
-                            <button class="flex items-center gap-2 text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
-                                </svg>
+                            <button class="flex items-center gap-2 text-white z-20 transition-all hover:opacity-75 text-xl">
+                                <i class="fa-solid fa-thumbs-up"></i>
                                 <span>628</span>
                             </button>
-                            <button class="flex items-center gap-2 text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894l3.5-7A2 2 0 018.736 3h4.018c.163 0 .326.02.485.06L17 4m-7 10v2a2 2 0 002 2h.095c.5 0 .905-.405.905-.905 0-.714.211-1.412.608-2.006L17 13V4m-7 10h2" />
-                                </svg>
+                            <button class="flex items-center gap-2 text-white z-20 transition-all hover:opacity-75 text-xl">
+                                <i class="fa-solid fa-thumbs-down"></i>
                                 <span>128</span>
                             </button>
-                            <button class="flex items-center text-white ml-auto">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                                </svg>
+                            <button class="flex items-center text-white ml-auto z-20 transition-all hover:opacity-75 text-xl">
+                                <i class="fa-solid fa-share-nodes"></i>
                             </button>
                         </div>
             
                         <!-- Definition Section -->
-                        <div class="space-y-4">
-                            <h3 class="text-yellow-500 text-xl font-bold">What It Means</h3>
-                            <div class="text-gray-200 space-y-2">
+                        <div class="space-y-4 w-full bg-[#142C16] bg-opacity-[25%] p-2 md:p-4 rounded-lg shadow-md">
+                            <h3 class="text-yellowMedium text-xl font-bold">What It Means</h3>
+                            <div class="text-white opacity-75 space-y-2">
                                 <p><span class="font-semibold">transcriber, translator</span> ~ a person</p>
-                                <p class="pl-4">who translates written messages from one language to another.</p>
-                                <p class="pl-4">~ an electronic language translator</p>
+                                <p>who translates written messages from one language to another.</p>
+                                <p>~ an electronic language translator</p>
                             </div>
+                            <h3 class="text-yellowMedium text-xl font-bold">Example</h3>
+                            <p class="text-white opacity-75">~ an electronic language translator</p>
                         </div>
             
                         <!-- Example Section -->
                         <div class="space-y-4">
-                            <h3 class="text-yellow-500 text-xl font-bold">Example</h3>
-                            <p class="text-gray-200">~ an electronic language translator</p>
                         </div>
             
                         <!-- Tags -->
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#language</span>
-                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#punjabi</span>
-                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#noun</span>
-                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#slang</span>
-                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#person</span>
-                            <span class="bg-[#1a2e1c] text-yellow-500 px-3 py-1 rounded-full text-sm">#word</span>
+                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#language</span>
+                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#punjabi</span>
+                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#noun</span>
+                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#slang</span>
+                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#person</span>
+                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#word</span>
                         </div>
             
                         <!-- Source -->
-                        <div class="text-gray-400 text-sm">
+                        <div class="text-white opacity-75 w-full text-right text-xs md:tex-base">
                             <span class="font-semibold">Source:</span>
-                            <a href="http://onlineslangdictionary.com/" class="text-blue-400 hover:underline">http://onlineslangdictionary.com/</a>
+                            <a href="http://onlineslangdictionary.com/" class="text-white font-light opacity-75 hover:underline italic">http://onlineslangdictionary.com/</a>
                         </div>
                     </div>
                 </div>
