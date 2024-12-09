@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -21,7 +23,8 @@
                     colors: {
                         'green': "#142C16",
                         'yellowMedium': "#FEBD05",
-                        'bgGreen': "#2C5C30"
+                        'bgGreen': "#2C5C30",
+                        'lightWhite': "#ffffffba"
                     },
                     backgroundColor: {
                     }
@@ -30,12 +33,14 @@
         }
     </script>
     <style>
-        *{
+        * {
             font-family: 'Inter', sans-serif;
         }
-        .courier{
+
+        .courier {
             font-family: 'Courier Prime', monospace;
         }
+
         .bg {
             background-image: url('./Images/Common/Bg.png');
             background-repeat: no-repeat;
@@ -53,10 +58,12 @@
             opacity: 1;
             /* Firefox */
         }
-        .drop-shadow{
+
+        .drop-shadow {
             filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
         }
-        section{
+
+        section {
             z-index: 20;
         }
 
@@ -121,6 +128,10 @@
         }
 
         @media (max-width: 768px) {
+            .bg {
+                width: 100%;
+            }
+
             .menu {
                 display: none;
             }
@@ -137,7 +148,7 @@
 </head>
 
 <body>
-    <main class="bg-green min-h-[500vh] relative pl-[3.5%]">
+    <main class="bg-green min-h-[500vh] relative lg:px-[3.5%]">
         <div class="bg opacity-70 lg:opacity-100"></div>
         <header class="pt-12 px-4 flex justify-between items-center z-20">
             <div class="logo">
@@ -191,14 +202,20 @@
         <section class="w-full px-4 z-20 mt-10 lg:mt-0">
             <div class="flex md:items-center justify-between">
                 <div class="flex flex-col items-center lg:items-start w-full md:w-1/2 mt-6 lg:mt-0">
-                    <h1 class="text-yellowMedium text-5xl md:text-4xl lg:text-7xl text-center lg:text-left lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">Unveiling the Richness of Punjabi Language</h1>
-                    <button class="hidden md:block bg-yellowMedium text-green font-bold px-8 py-4 w-[300px] my-12 flex items-center justify-between rounded-[60px] transition-all hover:bg-opacity-60 cursor-poitner z-20">
+                    <h1
+                        class="text-yellowMedium text-5xl md:text-4xl lg:text-7xl text-center lg:text-left lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">
+                        Unveiling the Richness of Punjabi Language</h1>
+                    <button
+                        class="hidden md:block bg-yellowMedium text-green font-bold px-8 py-4 w-[300px] my-12 flex items-center justify-between rounded-[60px] transition-all hover:bg-opacity-60 cursor-poitner z-20">
                         Add new word to dictionary
                         <!-- right arrow font awesome icon -->
                         <i class="fas fa-arrow-right"></i>
                     </button>
-                    <div class="stats hidden md:grid grid-cols-1 md:grid-cols-3 border border-yellowMedium py-6 w-full lg:w-[550px] rounded-[35px] px-4 relative md:pt-6 lg:pt-12">
-                        <p class="absolute text-[#ffffffba] bg-green top-0 left-12 px-2 -translate-y-1/2 text-xs lg:text-lg font-light">Our Achievements since the creation</p>
+                    <div
+                        class="stats hidden md:grid grid-cols-1 md:grid-cols-3 border border-yellowMedium py-6 w-full lg:w-[550px] rounded-[35px] px-4 relative md:pt-6 lg:pt-12">
+                        <p
+                            class="absolute text-lightWhite bg-green top-0 left-12 px-2 -translate-y-1/2 text-xs lg:text-lg font-light">
+                            Our Achievements since the creation</p>
                         <div class="flex flex-col items-center justify-center">
                             <h1 class="text-yellowMedium md:text-2xl lg:text-4xl font-regular">4,500</h1>
                             <p class="text-white text-xs lg:text-lg opacity-75 font-light mt-2">Defined Words</p>
@@ -212,8 +229,9 @@
                             <p class="text-white text-xs lg:text-lg opacity-75 font-light mt-2">Website Visits</p>
                         </div>
                     </div>
-                    
-                    <button class="bg-yellowMedium md:hidden text-green font-bold px-8 py-4 w-[300px] my-12 flex items-center justify-between rounded-[60px] transition-all hover:bg-opacity-60 cursor-poitner z-20">
+
+                    <button
+                        class="bg-yellowMedium md:hidden text-green font-bold px-8 py-4 w-[300px] my-12 flex items-center justify-between rounded-[60px] transition-all hover:bg-opacity-60 cursor-poitner z-20">
                         Add new word to dictionary
                         <!-- right arrow font awesome icon -->
                         <i class="fas fa-arrow-right"></i>
@@ -223,82 +241,375 @@
                     <img src="./Images/Home/Landing-img.png" alt="">
                 </div>
             </div>
-            <h1 class="my-6 mb-12 text-yellowMedium w-full text-5xl md:text-4xl lg:text-7xl text-center lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">Quick Bites</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="w-full bg-bgGreen rounded-lg md:rounded-2xl overflow-hidden shadow-xl relative">
-                    <i class="fa-solid fa-flag text-white md:text-xl absolute top-2 right-2 md:top-4 md:right-4 opacity-75"></i>
-                    <!-- Header -->
-                    <div class="p-2 md:p-6 space-y-2 w-full flex flex-col items-center mb-2 md:mb-0">
-                        <h1 class="text-white opacity-75 md:text-2xl tracking-wider courier tracking-widest border-b-2 pb-1">WORD OF THE DAY</h1>
-                        <p class="text-sm courier pt-1 text-white opacity-75 md:text-lg tracking-wider font-extrathin">17 July, 2024 | @maggi75</p>
-                    </div>
-            
-                    <!-- Image -->
-                    <div class="w-full aspect-[16/9] relative px-2 md:px-6">
-                        <img src="./Images/Home/word.png" alt="Artistic illustration" class="w-full h-full object-cover">
-                    </div>
-            
-                    <!-- Word Section -->
-                    <div class="p-2 md:p-6 space-y-6 flex flex-col items-center">
-                        <div class="space-y-2 flex flex-col items-center">
-                            <div class="flex items-center gap-2">
-                                <h2 class="text-white text-4xl font-black drop-shadow tracking-wide">tighubad</h2>
-                                <button class="text-white transition-all cursor-pointer hover:opacity-75 z-20">
-                                    <i class="fas fa-volume-up"></i>
+            <h1
+                class="my-6 mb-12 text-yellowMedium w-full text-5xl md:text-4xl lg:text-7xl text-center lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">
+                Quick Bites</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 md:mb-24">
+                <div class="w-full flex flex-col items-center space-y-8">
+                    <div class="w-full bg-bgGreen rounded-lg md:rounded-2xl overflow-hidden shadow-xl relative">
+                        <i
+                            class="fa-solid fa-flag text-white lg:text-xl absolute top-2 right-2 md:top-3 md:right-3 lg:top-4 lg:right-4 opacity-75"></i>
+                        <!-- Header -->
+                        <div class="p-2 md:p-6 space-y-2 w-full flex flex-col items-center mb-2 md:mb-0">
+                            <h1
+                                class="text-white opacity-75 md:text-2xl tracking-wider courier tracking-widest border-b-2 pb-1">
+                                WORD OF THE DAY</h1>
+                            <p
+                                class="text-sm courier pt-1 text-white opacity-75 md:text-lg tracking-wider font-extrathin">
+                                17 July, 2024 | @maggi75</p>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="w-full aspect-[16/9] relative px-2 md:px-6">
+                            <img src="./Images/Home/word.png" alt="Artistic illustration"
+                                class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Word Section -->
+                        <div class="p-2 md:p-6 space-y-6 flex flex-col items-center">
+                            <div class="space-y-2 flex flex-col items-center">
+                                <div class="flex items-center gap-2">
+                                    <h2 class="text-white text-4xl font-black drop-shadow tracking-wide">tighubad</h2>
+                                    <button class="text-white transition-all cursor-pointer hover:opacity-75 z-20">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                </div>
+                                <p class="text-white opacity-75 font-light"><span class="italic">noun</span> | tig · hu
+                                    · bad</p>
+                            </div>
+
+                            <!-- Interaction Buttons -->
+                            <div class="flex items-center gap-4">
+                                <button
+                                    class="flex items-center gap-2 text-white z-20 transition-all hover:opacity-75 text-xl">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                    <span>628</span>
+                                </button>
+                                <button
+                                    class="flex items-center gap-2 text-white z-20 transition-all hover:opacity-75 text-xl">
+                                    <i class="fa-solid fa-thumbs-down"></i>
+                                    <span>128</span>
+                                </button>
+                                <button
+                                    class="flex items-center text-white ml-auto z-20 transition-all hover:opacity-75 text-xl">
+                                    <i class="fa-solid fa-share-nodes"></i>
                                 </button>
                             </div>
-                            <p class="text-white opacity-75 font-light"><span class="italic">noun</span> | tig · hu · bad</p>
-                        </div>
-            
-                        <!-- Interaction Buttons -->
-                        <div class="flex items-center gap-4">
-                            <button class="flex items-center gap-2 text-white z-20 transition-all hover:opacity-75 text-xl">
-                                <i class="fa-solid fa-thumbs-up"></i>
-                                <span>628</span>
-                            </button>
-                            <button class="flex items-center gap-2 text-white z-20 transition-all hover:opacity-75 text-xl">
-                                <i class="fa-solid fa-thumbs-down"></i>
-                                <span>128</span>
-                            </button>
-                            <button class="flex items-center text-white ml-auto z-20 transition-all hover:opacity-75 text-xl">
-                                <i class="fa-solid fa-share-nodes"></i>
-                            </button>
-                        </div>
-            
-                        <!-- Definition Section -->
-                        <div class="space-y-4 w-full bg-[#142C16] bg-opacity-[25%] p-2 md:p-4 rounded-lg shadow-md">
-                            <h3 class="text-yellowMedium text-xl font-bold">What It Means</h3>
-                            <div class="text-white opacity-75 space-y-2">
-                                <p><span class="font-semibold">transcriber, translator</span> ~ a person</p>
-                                <p>who translates written messages from one language to another.</p>
-                                <p>~ an electronic language translator</p>
+
+                            <!-- Definition Section -->
+                            <div class="space-y-4 w-full bg-[#142C16] bg-opacity-[25%] p-2 md:p-4 rounded-lg shadow-md">
+                                <h3 class="text-yellowMedium text-xl font-bold">What It Means</h3>
+                                <div class="text-white opacity-75 space-y-2">
+                                    <p><span class="font-semibold">transcriber, translator</span> ~ a person</p>
+                                    <p>who translates written messages from one language to another.</p>
+                                    <p>~ an electronic language translator</p>
+                                </div>
+                                <h3 class="text-yellowMedium text-xl font-bold">Example</h3>
+                                <p class="text-white opacity-75">~ an electronic language translator</p>
                             </div>
-                            <h3 class="text-yellowMedium text-xl font-bold">Example</h3>
-                            <p class="text-white opacity-75">~ an electronic language translator</p>
+
+                            <!-- Example Section -->
+                            <div class="space-y-4">
+                            </div>
+
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#language</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#punjabi</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#noun</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#slang</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#person</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#word</span>
+                            </div>
+
+                            <!-- Source -->
+                            <div class="text-white opacity-75 w-full text-right text-xs md:tex-base">
+                                <span class="font-semibold">Source:</span>
+                                <a href="http://onlineslangdictionary.com/"
+                                    class="text-white font-light opacity-75 hover:underline italic">http://onlineslangdictionary.com/</a>
+                            </div>
                         </div>
-            
-                        <!-- Example Section -->
-                        <div class="space-y-4">
+                    </div>
+                    <div class="w-full bg-bgGreen rounded-lg md:rounded-2xl overflow-hidden shadow-xl relative">
+                        <!-- Header -->
+                        <div class="p-2 md:p-6 space-y-2 w-full flex flex-col items-center mb-2 md:mb-0">
+                            <h1
+                                class="text-white text-center opacity-75 md:text-2xl tracking-wider courier tracking-widest pb-1">
+                                MOST POPULAR WORDS OF THE MONTH</h1>
                         </div>
-            
-                        <!-- Tags -->
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#language</span>
-                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#punjabi</span>
-                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#noun</span>
-                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#slang</span>
-                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#person</span>
-                            <span class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 rounded-full">#word</span>
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 place-items-center p-2 md:p-6 gap-4">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
                         </div>
-            
-                        <!-- Source -->
-                        <div class="text-white opacity-75 w-full text-right text-xs md:tex-base">
-                            <span class="font-semibold">Source:</span>
-                            <a href="http://onlineslangdictionary.com/" class="text-white font-light opacity-75 hover:underline italic">http://onlineslangdictionary.com/</a>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col items-center space-y-8">
+                    <div class="w-full bg-bgGreen rounded-lg md:rounded-2xl overflow-hidden shadow-xl relative">
+                        <!-- Header -->
+                        <div class="p-2 md:p-6 space-y-2 w-full flex flex-col items-center mb-2 md:mb-0">
+                            <h1
+                                class="text-white text-center opacity-75 md:text-2xl tracking-wider courier tracking-widest pb-1">
+                                NEW DEFINITIONS OF THE MONTH</h1>
+                        </div>
+                        
+                        <h3 class="my-4 md:my-0 md:text-lg text-lightWhite font-black px-4 md:px-8 tracking-[3px]">JULY 26</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-2 md:p-6 gap-4">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                        </div>
+                        
+                        <h3 class="my-4 md:my-0 md:text-lg text-lightWhite font-black px-4 md:px-8 tracking-[3px]">JULY 26</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-2 md:p-6 gap-4">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                        </div>
+                        
+                        <h3 class="my-4 md:my-0 md:text-lg text-lightWhite font-black px-4 md:px-8 tracking-[3px]">JULY 26</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-2 md:p-6 gap-4">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                        </div>
+                        
+                        <h3 class="my-4 md:my-0 md:text-lg text-lightWhite font-black px-4 md:px-8 tracking-[3px]">JULY 26</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-2 md:p-6 gap-4">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                        </div>
+                        
+                        <h3 class="my-4 md:my-0 md:text-lg text-lightWhite font-black px-4 md:px-8 tracking-[3px]">JULY 26</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-2 md:p-6 gap-4">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                        </div>
+                        
+                        <h3 class="my-4 md:my-0 md:text-lg text-lightWhite font-black px-4 md:px-8 tracking-[3px]">JULY 26</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 p-2 md:p-6 gap-4">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                noun</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                slang</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                person</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                word</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                language</div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 rounded-full">
+                                punjabi</div>
                         </div>
                     </div>
                 </div>
             </div>
+            <h1
+                class="my-6 mb-12 text-yellowMedium w-full text-5xl md:text-4xl lg:text-7xl text-center lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">
+                Top Contributors</h1>
         </section>
     </main>
     <script>
@@ -310,7 +621,7 @@
         }
 
         // Close sidebar when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             var sidebar = document.getElementById('sidebar');
             var hamburger = document.querySelector('.hamburger');
             if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
