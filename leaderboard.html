@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    boxShadow: {
+                    },
+                    colors: {
+                        'green': "#142C16",
+                        'yellowMedium': "#FEBD05",
+                        'bgGreen': "#2C5C30",
+                        'lightWhite': "#ffffffba",
+                        'lightGreen': "#436545"
+                    },
+                    backgroundColor: {
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .courier {
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .bg {
+            background-image: url('./Images/Common/Bg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 97.5%;
+            z-index: 0;
+        }
+
+        ::placeholder {
+            color: white;
+            opacity: 1;
+            /* Firefox */
+        }
+
+        .drop-shadow {
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
+        }
+
+        section {
+            z-index: 20;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 40;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #FEBD05;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: #142C16;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            z-index: 30;
+            padding: 20px;
+            transition: left 0.3s ease;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            color: #FEBD05;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .accordion-content {
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1000px;
+            /* Adjust this value based on your content */
+        }
+
+        @media (max-width: 768px) {
+            .bg {
+                width: 100%;
+            }
+
+            .menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .sidebar {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="bg-green relative lg:px-[3.5%] overflow-hidden">
+        <div class="bg opacity-70 lg:opacity-100"></div>
+        <header class="pt-12 px-4 flex justify-between items-center z-20">
+            <div class="logo">
+                <img src="./Images/Common/Taksaal.png" alt="" class="h-6 lg:h-auto">
+            </div>
+            <div class="hidden menu bg-yellowMedium px-2 rounded-[45px] py-1 lg:flex items-center z-20">
+                <!-- Search bar -->
+                <div class="search flex items-center bg-[#142C16] bg-opacity-[35%] p-1 rounded-3xl mr-2">
+                    <div class="bg-green h-10 w-10 rounded-full grid place-items-center">
+                        <i class="fas fa-search text-white opacity-[45%]"></i>
+                    </div>
+                    <div class="ml-2 relative w-56">
+                        <p class="absolute top-0 left-0 text-white opacity-[45%]">Search meaning of a word...</p>
+                        <input type="text" class="bg-transparent w-full border-none focus:outline-none" />
+                    </div>
+
+                </div>
+                <ul class="flex items-center">
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">Home</a>
+                    </li>
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">LeaderBoard</a>
+                    </li>
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">Dictionary</a>
+                    </li>
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">Login</a>
+                    </li>
+                    <li class="mr-4">
+                        <a href="#" class="text-green font-bold transition-all hover:opacity-60">Profile</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="hamburger lg:hidden" onclick="toggleSidebar()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </header>
+        <div class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">Home</a></li>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">LeaderBoard</a></li>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">Dictionary</a></li>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">Login</a></li>
+                <li><a href="#" class="text-yellowMedium font-bold transition-all hover:opacity-60">Profile</a></li>
+            </ul>
+        </div>
+        <section class="w-full px-4 z-20 mt-10 lg:mt-0">
+            <div class="flex md:items-center justify-between">
+                <div class="flex flex-col items-center lg:items-start w-full md:w-1/2 mt-6 lg:mt-0">
+                    <h1
+                        class="text-yellowMedium text-5xl md:text-4xl lg:text-7xl text-center lg:text-left lg:font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">
+                        Celebrating the Torchbearers of Punjabi Lexicon</h1>
+                    <button
+                        class="hidden md:block bg-yellowMedium text-green font-bold px-8 py-4 w-[320px] my-12 flex items-center justify-between rounded-[60px] transition-all hover:bg-opacity-60 cursor-poitner z-20">
+                        Explore the Top Wordsmiths
+                        <!-- right arrow font awesome icon -->
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div
+                        class="stats hidden md:grid grid-cols-1 md:grid-cols-3 border border-yellowMedium py-6 w-full lg:w-[550px] rounded-[35px] px-4 relative md:pt-6 lg:pt-12">
+                        <p
+                            class="absolute text-lightWhite bg-green top-0 left-12 px-2 -translate-y-1/2 text-xs lg:text-lg font-light">
+                            Our Users' Contributions at a Glance</p>
+                        <div class="flex flex-col items-center justify-center">
+                            <h1 class="text-yellowMedium md:text-2xl lg:text-4xl font-regular">4,500</h1>
+                            <p class="text-white text-xs lg:text-lg opacity-75 font-light mt-2">New Words Added</p>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <h1 class="text-yellowMedium md:text-2xl lg:text-4xl font-regular">8000+</h1>
+                            <p class="text-white text-xs lg:text-lg opacity-75 font-light mt-2">User Referrals</p>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <h1 class="text-yellowMedium md:text-2xl lg:text-4xl font-regular">500k+</h1>
+                            <p class="text-white text-xs lg:text-lg opacity-75 font-light mt-2">Daily Check-ins</p>
+                        </div>
+                    </div>
+
+                    <button
+                        class="bg-yellowMedium md:hidden text-green font-bold px-8 py-4 w-[300px] my-12 flex items-center justify-between rounded-[60px] transition-all hover:bg-opacity-60 cursor-poitner z-20">
+                        Explore the Top Wordsmiths
+                        <!-- right arrow font awesome icon -->
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="hidden md:grid w-[45%]">
+                    <img src="./Images/Home/Landing-img.png" alt="">
+                </div>
+            </div>
+            <h1
+                class="my-6 md:mb-12 text-yellowMedium w-full text-3xl md:text-4xl lg:text-7xl text-center font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">
+                Hall of Fame</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 md:mb-24">
+                <div class="w-full flex flex-col items-center space-y-8">
+                    <div class="w-full bg-bgGreen rounded-lg md:rounded-2xl overflow-hidden shadow-xl relative">
+                        <i
+                            class="fa-solid fa-flag text-white lg:text-xl absolute top-2 right-2 md:top-3 md:right-3 lg:top-4 lg:right-4 opacity-75"></i>
+                        <!-- Header -->
+                        <div class="p-2 md:p-6 space-y-2 w-full flex flex-col items-center mb-2 md:mb-0">
+                            <h1
+                                class="text-white opacity-75 uppercase md:text-2xl tracking-wider courier tracking-widest border-b-2 pb-1">
+                                Wordsmith of the Day</h1>
+                            <p
+                                class="text-sm courier pt-1 text-white opacity-75 md:text-lg tracking-wider font-extrathin">
+                                17 July, 2024 | @maggi75</p>
+                        </div>
+
+                        <!-- Image -->
+                        <div class="w-full aspect-[16/9] relative px-2 lg:px-6">
+                            <div class="w-full h-[250px] lg:h-full  relative flex flex-col items-center justify-center">
+                                <img src="./Images/Home/word.png" alt="Artistic illustration"
+                                    class="w-full h-[250px] lg:h-full object-cover top-0 left-0 absolute">
+                                <div class="overlay bg-black top-0 left-0 h-full w-full opacity-70 absolute"></div>
+                                <div class="content flex flex-col lg:flex-row items-center lg:items-end justify-between w-full z-20">
+                                    <img src="./Images/Leaderboard/wordsmith.png" alt="" class="z-20 h-28">
+                                    <div class="txt z-20 w-full flex flex-col justify-center items-center lg:items-start lg:justify-end mb-2 lg:mb-4 lg:ml-4">
+                                        <h3 class="text-yellowMedium text-xl lg:text-3xl drop-shadow font-bold z-20 w-full text-center lg:text-left">Ms. Rose Marry
+                                        </h3>
+                                        <p class="text-white opacity-75 font-light my-1 lg:my-2 w-full text-center lg:text-left text-sm lg:text-base">who translates written messages
+                                            from one language to another.</p>
+                                        <div class="flex items-center justify-start space-x-2 mt-1 lg:mt-0">
+                                            <i class="fa-solid fa-users text-white text-sm lg:text-base"></i>
+                                            <p class="text-white opacity-75 font-light text-sm lg:text-base">1,723</p>
+                                            <p class="text-white opacity-75 font-light">|</p>
+                                            <i class="fa-solid fa-file-pen text-white text-sm lg:text-base"></i>
+                                            <p class="text-white opacity-75 font-light text-sm lg:text-base">1,723</p>
+                                            <p class="text-white opacity-75 font-light">|</p>
+                                            <i class="fa-solid fa-mug-hot text-white text-sm lg:text-base"></i>
+                                            <p class="text-white opacity-75 font-light text-sm lg:text-base">1,723</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Word Section -->
+                        <div class="p-2 md:p-6 space-y-6 flex flex-col items-center">
+                            <div class="space-y-2 flex flex-col items-center">
+                                <div class="flex items-center gap-2">
+                                    <h2 class="text-white text-4xl font-black drop-shadow tracking-wide">tighubad</h2>
+                                    <button class="text-white transition-all cursor-pointer hover:opacity-75 z-20">
+                                        <i class="fas fa-volume-up"></i>
+                                    </button>
+                                </div>
+                                <p class="text-white opacity-75 font-light"><span class="italic">noun</span> | tig · hu
+                                    · bad</p>
+                            </div>
+
+                            <!-- Interaction Buttons -->
+                            <div class="flex items-center gap-4">
+                                <button
+                                    class="flex items-center gap-2 text-white z-20 transition-all hover:opacity-75 text-xl">
+                                    <i class="fa-solid fa-thumbs-up"></i>
+                                    <span>628</span>
+                                </button>
+                                <button
+                                    class="flex items-center gap-2 text-white z-20 transition-all hover:opacity-75 text-xl">
+                                    <i class="fa-solid fa-thumbs-down"></i>
+                                    <span>128</span>
+                                </button>
+                                <button
+                                    class="flex items-center text-white ml-auto z-20 transition-all hover:opacity-75 text-xl">
+                                    <i class="fa-solid fa-share-nodes"></i>
+                                </button>
+                            </div>
+
+                            <!-- Definition Section -->
+                            <div class="space-y-4 w-full bg-[#142C16] bg-opacity-[25%] p-2 md:p-4 rounded-lg shadow-md">
+                                <h3 class="text-yellowMedium text-xl font-bold">What It Means</h3>
+                                <div class="text-white opacity-75 space-y-2">
+                                    <p><span class="font-semibold">transcriber, translator</span> ~ a person</p>
+                                    <p>who translates written messages from one language to another.</p>
+                                    <p>~ an electronic language translator</p>
+                                </div>
+                                <h3 class="text-yellowMedium text-xl font-bold">Example</h3>
+                                <p class="text-white opacity-75">~ an electronic language translator</p>
+                            </div>
+
+                            <!-- Example Section -->
+                            <div class="space-y-4">
+                            </div>
+
+                            <!-- Tags -->
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#language</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#punjabi</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#noun</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#slang</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#person</span>
+                                <span
+                                    class="bg-[#142C16] bg-opacity-[35%] text-yellowMedium px-3 py-1 pb-2 rounded-full">#word</span>
+                            </div>
+
+                            <!-- Source -->
+                            <div class="text-white opacity-75 w-full text-right text-xs md:tex-base">
+                                <span class="font-semibold">Source:</span>
+                                <a href="http://onlineslangdictionary.com/"
+                                    class="text-white font-light opacity-75 hover:underline italic">http://onlineslangdictionary.com/</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full bg-bgGreen rounded-lg md:rounded-2xl overflow-hidden shadow-xl relative">
+                        <!-- Header -->
+                        <div class="p-2 md:p-6 space-y-2 w-full flex flex-col items-center mb-2 md:mb-0">
+                            <h1
+                                class="text-white opacity-75 uppercase md:text-2xl tracking-wider courier tracking-widest border-b-2 pb-1">
+                                Chaudharies of the month</h1>
+                            <p
+                                class="text-sm courier pt-1 text-white opacity-75 md:text-lg tracking-wider font-extrathin">
+                                17 July, 2024 | 12 referrals</p>
+                        </div>
+                        <div class="grid grid-cols-1 gap-4 mb-12">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-gold.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            1</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            2</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            3</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col items-center space-y-8">
+                    <div class="w-full bg-bgGreen rounded-lg md:rounded-2xl overflow-hidden shadow-xl relative flex flex-col items-center">
+                        <img src="./Images/Leaderboard/confetti-left.png" alt="" class="absolute top-0 left-0 h-40 md:h-auto">
+                        <img src="./Images/Leaderboard/confetti-right.png" alt="" class="absolute top-0 right-0 h-40 md:h-auto">
+                        <!-- Header -->
+                        <div class="p-2 md:p-6 space-y-2 w-full flex flex-col items-center mb-2 md:mb-0">
+                            <h1
+                                class="text-white opacity-75 uppercase md:text-2xl tracking-wider courier tracking-widest border-b-2 pb-1">
+                                Punjabi Pankh of the Day</h1>
+                            <p
+                                class="text-sm courier pt-1 text-white opacity-75 md:text-lg tracking-wider font-extrathin">
+                                17 July, 2024 | 12 check-ins</p>
+                        </div>
+                        <img src="./Images/Leaderboard/leaders.png" alt="" class="my-2">
+                        <div class="grid grid-cols-1 gap-4 w-full my-12">
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-gold.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            1</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            2</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            3</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            4</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            5</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            6</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            7</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            8</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            9</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="bg-[#142C16] bg-opacity-[35%] text-lightWhite w-full text-center px-3 py-2 pb-3 md:pb-4 lg:pb-3 flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="relative">
+                                        <img src="./Images/Leaderboard/crown-other.png" alt="">
+                                        <p
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-xs font-bold">
+                                            10</p>
+                                    </div>
+                                    <img src="./Images/Leaderboard/pfp.png" alt="" class="h-12 md:h-auto">
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite text-sm md:text-xl font-semibold w-full text-left">Suraj
+                                            Khandwal</h3>
+                                        <p class="text-lightWhite text-xs md:text-base font-light">joined 5 monnths ago</p>
+
+                                    </div>
+                                </div>
+                                <div class="hidden lg:flex items-center space-x-4">
+                                    <div class="bg-lightGreen rounded-full p-2">
+                                        <img src="./Images/Leaderboard/trophy.png" alt="">
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <h3 class="text-lightWhite md:text-xl font-semibold w-full text-center">120</h3>
+                                        <p class="text-lightWhite font-light">referrals</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1
+                class="my-6 md:mb-12 w-full text-yellowMedium w-full text-2xl md:text-4xl lg:text-7xl text-center font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">
+                Muchh Futt Gabhrus</h1>
+            <div class="flex flex-col w-full z-20 items-center">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 z-20 w-full">
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                    <div
+                        class="box bg-lightGreen rounded-xl md:rounded-[45px] shadow-md flex flex-col items-center justify-center z-20 h-full w-full py-3 md:py-5">
+                        <img src="/Images/Home/pfp.png" alt=""
+                            class="rounded-full h-20 w-20 md:h-36 md:w-36 z-20 bg-red-400">
+                        <p
+                            class="text-lightWhite font-semibold w-full text-center mt-2 md:mt-4 text-sm md:text-xl tracking-wider">
+                            Monkey D. Luffy</p>
+
+                        <p
+                            class="text-yellowMedium drop-shadow font-semibold w-full text-sm md:text-base text-center cursor-pointer transition-all hover:opacity-75 mt-1">
+                            View Profile <i class="fas fa-angle-right"></i></p>
+                    </div>
+                </div>
+            </div>
+            <h1
+                class="mt-20 text-yellowMedium w-full text-2xl md:text-4xl lg:text-7xl text-center font-bold leading-[35px] md:leading-[55px] lg:leading-[85px] drop-shadow z-20">
+                Punjabi Tikke: How to Earn It
+            </h1>
+            <p
+                class="my-4 font-regular text-lightWhite text-xl z-20 md:text-2xl lg:text-4xl tracking-wide w-full text-center">
+                Gallan Karo, Moti Bano!
+            </p>
+            <div class="w-full flex items-center justify-center my-12 z-20">
+                    <button
+                        class="z-20 text-green bg-yellowMedium text-black text-sm md:text-base font-semibold py-3 rounded-full flex items-center gap-2 px-4 hover:bg-opacity-75 z-20">
+                        View and Download Guidelines
+                        <i class="fas fa-chevron-right mt-[1px]"></i>
+                    </button>
+            </div>
+        </section>
+    </main>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var hamburger = document.querySelector('.hamburger');
+            sidebar.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function (event) {
+            var sidebar = document.getElementById('sidebar');
+            var hamburger = document.querySelector('.hamburger');
+            if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+        document.querySelectorAll('.accordion-item button').forEach(button => {
+            button.addEventListener('click', () => {
+                const accordionItem = button.parentElement;
+                const accordionContent = accordionItem.querySelector('.accordion-content');
+                const icon = button.querySelector('i');
+
+                // Toggle the active class on the clicked item
+                accordionItem.classList.toggle('active');
+
+                // Toggle the icon
+                if (accordionItem.classList.contains('active')) {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                } else {
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                }
+
+                // Adjust the max-height of the content for smooth animation
+                if (accordionItem.classList.contains('active')) {
+                    accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                } else {
+                    accordionContent.style.maxHeight = "0";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
