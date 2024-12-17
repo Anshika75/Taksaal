@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'green': "#142C16",
+                        'yellowMedium': "#FEBD05",
+                        'bgGreen': "#2C5C30",
+                        'lightWhite': "#ffffffba",
+                        'lightGreen': "#436545",
+                        'lightestGreen': "#92AF94"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .left-bg {
+            background-image: url('./Images/Signup/left-signup.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .drop-shadow {
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
+        }
+
+        .drop-shadow-box {
+            filter: drop-shadow(0px 16px 32px rgba(12, 12, 13, 0.1)) drop-shadow(0px 4px 4px -4px rgba(12, 12, 13, 0.05));
+        }
+
+        input::placeholder {
+            font-weight: 700;
+            color: #436545; /* Light green color for placeholder */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main bg-lightestGreen w-full min-h-screen grid grid-cols-12">
+        <div class="left w-full h-full lg:col-span-3 left-bg hidden lg:grid place-items-center">
+            <div class="txt flex flex-col justify-center items-center w-full px-8 pr-12">
+                <h1
+                    class="mt-20 text-lightGreen w-full text-2xl md:text-xl lg:text-3xl text-center font-bold leading-[35px] md:leading-[25px] lg:leading-[35px] drop-shadow z-20 pr-2">
+                    Embrace the Beauty of Punjabi
+                </h1>
+                <p class="text-center text-sm mt-4 text-green mb-24">
+                    Step into Taksaal’s embrace, <br>
+                    Where Punjabi words find their place. <br>
+                    Unlock the magic, start anew, <br>
+                    Let the language call to you. <br>
+                    Join our journey, rich and bright, <br>
+                    Where meanings sparkle in the light. <br> <br>
+                    Sign up now, and let’s explore, <br>
+                    A world of words and so much more. <br>
+                    With every phrase, a tale unfolds, <br>
+                    In Taksaal’s realm, the heart beholds. <br>
+                    Together we’ll cherish, learn, and play, <br>
+                    In this vibrant lexicon every day. <br>
+                </p>
+            </div>
+        </div>
+        <div class="w-full grid place-items-center col-span-12 lg:col-span-9 px-12 lg:px-32 py-12">
+            <img src="" alt="">
+            <div
+                class="box w-full h-auto bg-white bg-opacity-50 rounded-[35px] drop-shadow-box px-12 flex flex-col gap-4 py-8">
+
+                <h1
+                    class="text-green w-full text-2xl md:text-xl lg:text-3xl font-medium leading-[35px] md:leading-[25px] lg:leading-[35px] drop-shadow z-20 pr-2">
+                    Sign Up Now
+                </h1>
+                <div class="flex items-center gap-4 w-full">
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <p class="w-full text-green text-lg font-medium">First name</p>
+                        <input
+                            class="w-full bg-transparent h-12 border border-green rounded-xl text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                            type="text" placeholder="Enter your first name">
+                    </div>
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <p class="w-full text-green text-lg font-medium">Last name</p>
+                        <input
+                            class="w-full bg-transparent h-12 border border-green rounded-xl text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                            type="text" placeholder="Enter your last name">
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 w-full">
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <p class="w-full text-green text-lg font-medium">Email Address</p>
+                        <input
+                            class="w-full bg-transparent h-12 border border-green rounded-xl text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                            type="text" placeholder="Enter your Email Address">
+                    </div>
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <p class="w-full text-green text-lg font-medium">Phone No</p>
+                        <input
+                            class="w-full bg-transparent h-12 border border-green rounded-xl text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                            type="text" placeholder="Enter your Phone No">
+                    </div>
+                </div>
+                <div class="flex items-center gap-4 w-full">
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <p class="w-full text-green text-lg font-medium">Password</p>
+                        <input
+                            class="w-full bg-transparent h-12 border border-green rounded-xl text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                            type="text" placeholder="Enter your Password">
+                    </div>
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <p class="w-full text-green text-lg font-medium">Confirm Password</p>
+                        <input
+                            class="w-full bg-transparent h-12 border border-green rounded-xl text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                            type="text" placeholder="Enter your Confirm Password">
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 mt-4">
+                    <input type="checkbox" id="terms" class="checkbox-custom">
+                    <label for="terms" class="text-green">
+                        By creating an account, I agree to our 
+                        <a href="#" class="text-bgGreen underline">Terms of use</a> and 
+                        <a href="#" class="text-bgGreen underline">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <!-- Marketing Consent Checkbox -->
+                <div class="flex items-start gap-2">
+                    <input type="checkbox" id="marketing" class="checkbox-custom mt-2">
+                    <label for="marketing" class="text-green">
+                        By creating an account, I am also consenting to receive SMS messages and emails, including product new feature updates, events, and marketing promotions.
+                    </label>
+                </div>
+
+                <div class="flex items-center gap-3 mt-6">
+                    <button class="bg-bgGreen text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-green transition-colors">
+                        Sign up
+                    </button>
+                    <p class="text-green">
+                        Already have an account? 
+                        <a href="#" class="text-bgGreen underline">Log in</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
