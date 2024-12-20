@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taksaal - Multi-step Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'green': "#142C16",
+                        'yellowMedium': "#FEBD05",
+                        'bgGreen': "#2C5C30",
+                        'lightWhite': "#ffffffba",
+                        'lightGreen': "#436545",
+                        'lightestGreen': "#92AF94"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .left-bg {
+            background-image: url('./Images/Signup/left-signup.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .drop-shadow {
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 1));
+        }
+
+        .drop-shadow-box {
+            filter: drop-shadow(0px 16px 32px rgba(12, 12, 13, 0.1)) drop-shadow(0px 4px 4px -4px rgba(12, 12, 13, 0.05));
+        }
+
+        input::placeholder {
+            font-weight: 700;
+            color: #436545;
+        }
+    </style>
+</head>
+
+<body>
+    <div
+        class="main bg-lightestGreen w-full min-h-screen flex flex-col items-center justify-center lg:grid lg:grid-cols-12">
+        <div class="left w-full h-full lg:col-span-3 left-bg hidden lg:grid place-items-center">
+            <div class="txt flex flex-col justify-center items-center w-full px-8 pr-12">
+                <h1
+                    class="mt-20 text-lightGreen w-full text-2xl md:text-xl lg:text-3xl text-center font-bold leading-[35px] md:leading-[25px] lg:leading-[35px] drop-shadow z-20 pr-2">
+                    Embrace the Beauty of Punjabi
+                </h1>
+                <p class="text-center text-sm mt-4 text-green mb-24">
+                    Step into Taksaal's embrace, <br>
+                    Where Punjabi words find their place. <br>
+                    Unlock the magic, start anew, <br>
+                    Let the language call to you. <br>
+                    Join our journey, rich and bright, <br>
+                    Where meanings sparkle in the light. <br> <br>
+                    Sign up now, and let's explore, <br>
+                    A world of words and so much more. <br>
+                    With every phrase, a tale unfolds, <br>
+                    In Taksaal's realm, the heart beholds. <br>
+                    Together we'll cherish, learn, and play, <br>
+                    In this vibrant lexicon every day. <br>
+                </p>
+            </div>
+        </div>
+
+        <img src="./Images/Common/Taksaal-Dark.png" alt="" class="mt-12 md:mt-0 md:h-20 lg:hidden">
+        <div class="w-full lg:grid lg:place-items-center lg:col-span-9 px-4 md:px-12 lg:px-32 py-12">
+            <div
+                class="box w-full h-auto bg-white bg-opacity-50 rounded-xl md:rounded-[35px] drop-shadow-box px-4 md:px-12 flex flex-col gap-4 py-4 md:py-8">
+
+
+                <!-- Progress Indicator -->
+                <div class="hidden md:flex justify-between mb-8 relative lg:px-20">
+                    <div class="step flex flex-col items-center justify-center active" data-step="1">
+                        <div
+                            class="step-circle bg-bgGreen text-white rounded-full w-8 h-8 flex items-center justify-center relative z-10">
+                            1
+                        </div>
+                        <p class="text-sm mt-1">Add Word</p>
+                    </div>
+                    <!-- Progress Segments between 1 and 2 -->
+                    <div class="flex items-center">
+                        <div class="progress-segment w-[60px] h-[4px] bg-[#979797] bg-opacity-[35%] relative mx-[4px]">
+                            <div class="progress-fill absolute top-0 left-0 h-full w-50% bg-green transition-all"
+                                id="progress1-1"></div>
+                        </div>
+                    </div>
+                    <div class="step flex flex-col items-center justify-center" data-step="2">
+                        <div
+                            class="step-circle bg-[#979797] bg-opacity-[35%] text-green rounded-full w-8 h-8 flex items-center justify-center relative z-10">
+                            2
+                        </div>
+                        <p class="text-sm mt-1">Add Pronunciation</p>
+                    </div>
+                    <!-- Progress Segments between 2 and 3 -->
+                    <div class="flex items-center">
+                        <div class="progress-segment w-[60px] h-[4px] bg-[#979797] bg-opacity-[35%] relative mx-[4px]">
+                            <div class="progress-fill absolute top-0 left-0 h-full w-0 bg-green transition-all"
+                                id="progress2-1"></div>
+                        </div>
+                    </div>
+                    <div class="step flex flex-col items-center justify-center" data-step="3">
+                        <div
+                            class="step-circle bg-[#979797] bg-opacity-[35%] text-green rounded-full w-8 h-8 flex items-center justify-center relative z-10">
+                            3
+                        </div>
+                        <p class="text-sm mt-1">Add Resource</p>
+                    </div>
+                    <!-- Progress Segments between 3 and 4 -->
+                    <div class="flex items-center">
+                        <div class="progress-segment w-[60px] h-[4px] bg-[#979797] bg-opacity-[35%] relative mx-[4px]">
+                            <div class="progress-fill absolute top-0 left-0 h-full w-0 bg-green transition-all"
+                                id="progress3-1"></div>
+                        </div>
+                    </div>
+                    <div class="step flex flex-col items-center justify-center" data-step="4">
+                        <div
+                            class="step-circle bg-[#979797] bg-opacity-[35%] text-green rounded-full w-8 h-8 flex items-center justify-center relative z-10">
+                            4
+                        </div>
+                        <p class="text-sm mt-1">Add Visuals</p>
+                    </div>
+                </div>
+
+
+                <!-- Step 1: Add New Word -->
+                <div class="step-content" id="step1">
+                    <div class="flex flex-col gap-4 lg:px-20">
+                        <h1
+                            class="md:hidden text-green w-full text-2xl md:text-xl lg:text-3xl font-medium leading-[35px] md:leading-[25px] lg:leading-[35px] drop-shadow z-20 pr-2 mb-4">
+                            Add Word
+                        </h1>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Gurumukhi Word</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter Gurumukhi Word">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">English Transliteration</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter English Transliteration">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Gurumukhi Meaning</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter Gurumukhi Meaning">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">English Meaning</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter English Meaning">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Gurumukhi Example</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter Gurumukhi Example">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">English Example</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter English Example">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Add Pronunciation -->
+                <div class="step-content hidden" id="step2">
+                    <div class="flex flex-col gap-4 lg:px-20">
+                        <h1
+                            class="md:hidden text-green w-full text-2xl md:text-xl lg:text-3xl font-medium leading-[35px] md:leading-[25px] lg:leading-[35px] drop-shadow z-20 pr-2 mb-4">
+                            Add Pronunciation
+                        </h1>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Record Audio</p>
+                            <div class="flex items-center gap-4 w-full">
+                                <button id="startRecording" class="bg-bgGreen w-full text-white px-4 py-2 rounded-full">
+                                    <i class="fas fa-microphone mr-2"></i>Start Recording
+                                </button>
+                                <button id="stopRecording"
+                                    class="bg-red-500 w-full text-white px-4 py-2 rounded-full hidden">
+                                    <i class="fas fa-stop mr-2"></i>Stop Recording
+                                </button>
+                                <audio id="audioPlayback" controls class="hidden"></audio>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Pronunciation Tips</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter Pronunciation Tip">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Type</p>
+                            <select
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium text-lightGreen outline-none">
+                                <option value="">Select Word Type</option>
+                                <option value="noun">Noun</option>
+                                <option value="adjective">Pro-noun</option>
+                                <option value="verb">Verb</option>
+                                <option value="adjective">Adjective</option>
+                                <option value="adjective">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Add Resource -->
+                <div class="step-content hidden" id="step3">
+                    <div class="flex flex-col gap-4 lg:px-20">
+                        <h1
+                            class="md:hidden text-green w-full text-2xl md:text-xl lg:text-3xl font-medium leading-[35px] md:leading-[25px] lg:leading-[35px] drop-shadow z-20 pr-2 mb-4">
+                            Add Resource
+                        </h1>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Default Tag</p>
+                            <select
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium text-lightGreen outline-none">
+                                <option value="">Select Default Tag</option>
+                                <option value="noun">Noun</option>
+                                <option value="verb">Verb</option>
+                                <option value="adjective">Adjective</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Other Tags (comma separated)</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter other tags">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Origin</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter origin">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Resource Link</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter resource link">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Add Visuals -->
+                <div class="step-content hidden" id="step4">
+                    <div class="flex flex-col gap-4 lg:px-20">
+                        <h1
+                            class="md:hidden text-green w-full text-2xl md:text-xl lg:text-3xl font-medium leading-[35px] md:leading-[25px] lg:leading-[35px] drop-shadow z-20 pr-2 mb-4">
+                            Add Visuals
+                        </h1>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Upload Files (Supported formats: jpg, jpeg,
+                                png)</p>
+                            <div
+                                class="w-full h-32 border-2 border-dashed border-green rounded-xl flex items-center justify-center cursor-pointer">
+                                <div class="text-center">
+                                    <i class="fas fa-cloud-upload-alt text-3xl text-green mb-2"></i>
+                                    <p class="text-green">Drag & drop files or Browse</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Video Title</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter video title">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <p class="w-full text-green text-lg font-medium">Video Link</p>
+                            <input
+                                class="w-full bg-transparent h-12 border border-green rounded-xl md:text-xl px-2 font-medium placeholder-lightGreen placeholder-opacity-50 text-lightGreen outline-none"
+                                type="text" placeholder="Enter video link">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center lg:px-20 w-full gap-3 mt-6">
+                    <button id="prevBtn"
+                        class="bg-lightGreen w-full text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-green transition-colors">
+                        Previous
+                    </button>
+                    <button id="nextBtn"
+                        class="bg-bgGreen w-full text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-green transition-colors">
+                        Next
+                    </button>
+                    <button id="submitBtn"
+                        class="bg-bgGreen w-full text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-green transition-colors hidden">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const steps = document.querySelectorAll('.step');
+        const stepContents = document.querySelectorAll('.step-content');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        let currentStep = 1;
+
+        async function updateStep(isMovingForward = true) {
+            steps.forEach((step, index) => {
+                if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                    step.querySelector('.step-circle').classList.remove('bg-[#979797]', 'bg-opacity-[35%]', 'text-green');
+                    step.querySelector('.step-circle').classList.add('bg-bgGreen', 'text-white');
+                } else {
+                    step.classList.remove('active');
+                    step.querySelector('.step-circle').classList.remove('bg-bgGreen', 'text-white');
+                    step.querySelector('.step-circle').classList.add('bg-[#979797]', 'bg-opacity-[35%]', 'text-green');
+                }
+            });
+
+            stepContents.forEach((content, index) => {
+                if (index + 1 === currentStep) {
+                    content.classList.remove('hidden');
+                } else {
+                    content.classList.add('hidden');
+                }
+            });
+
+            prevBtn.style.display = currentStep === 1 ? 'none' : 'inline-block';
+            nextBtn.style.display = currentStep === 4 ? 'none' : 'inline-block';
+            submitBtn.style.display = currentStep === 4 ? 'inline-block' : 'none';
+
+            await updateProgressBars(currentStep, isMovingForward);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStep(false);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentStep < 4) {
+                currentStep++;
+                updateStep(true);
+            }
+        });
+
+        submitBtn.addEventListener('click', () => {
+            // Handle form submission
+            alert('Form submitted successfully!');
+        });
+
+        // Audio recording functionality
+        const startRecordingBtn = document.getElementById('startRecording');
+        const stopRecordingBtn = document.getElementById('stopRecording');
+        const audioPlayback = document.getElementById('audioPlayback');
+        let mediaRecorder;
+        let audioChunks = [];
+
+        startRecordingBtn.addEventListener('click', async () => {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                audioPlayback.src = audioUrl;
+                audioPlayback.classList.remove('hidden');
+            };
+
+            mediaRecorder.start();
+            startRecordingBtn.classList.add('hidden');
+            stopRecordingBtn.classList.remove('hidden');
+        });
+
+        stopRecordingBtn.addEventListener('click', () => {
+            mediaRecorder.stop();
+            startRecordingBtn.classList.remove('hidden');
+            stopRecordingBtn.classList.add('hidden');
+        });
+
+        const totalSteps = 4;
+
+        async function updateProgressBars(step, isMovingForward) {
+            // Update circles
+            document.querySelectorAll('.step-circle').forEach((circle, index) => {
+                if (index + 1 < step) {
+                    circle.classList.remove('bg-[#979797]', 'bg-opacity-[35%]', 'text-green');
+                    circle.classList.add('bg-bgGreen', 'text-white');
+                } else if (index + 1 === step) {
+                    circle.classList.remove('bg-[#979797]', 'bg-opacity-[35%]', 'text-green');
+                    circle.classList.add('bg-bgGreen', 'text-white');
+                } else {
+                    circle.classList.remove('bg-bgGreen', 'text-white');
+                    circle.classList.add('bg-[#979797]', 'bg-opacity-[35%]', 'text-green');
+                }
+            });
+
+            // Animate progress bars
+            for (let i = 1; i < totalSteps; i++) {
+                const progressBar = document.getElementById(`progress${i}-1`);
+                if (i < step - 1) {
+                    progressBar.style.width = '100%';
+                } else if (i === step - 1) {
+                    if (isMovingForward) {
+                        await animateProgressBar(progressBar, 50, 100);
+                    } else {
+                        progressBar.style.width = '50%';
+                    }
+                } else if (i === step && isMovingForward) {
+                    await animateProgressBar(progressBar, 0, 50);
+                } else {
+                    progressBar.style.width = '0%';
+                }
+            }
+        }
+
+        async function animateProgressBar(element, start, end) {
+            const duration = 500; // Animation duration in milliseconds
+            const startTime = performance.now();
+
+            return new Promise(resolve => {
+                function animate(currentTime) {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+                    const currentWidth = start + (end - start) * progress;
+
+                    element.style.width = `${currentWidth}%`;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        resolve();
+                    }
+                }
+
+                requestAnimationFrame(animate);
+            });
+        }
+
+        // Initialize with 50% fill on the first progress bar
+        document.getElementById('progress1-1').style.width = '50%';
+
+        updateStep();
+    </script>
+</body>
+
+</html>
