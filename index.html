@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet">=
+
     <script>
         tailwind.config = {
             theme: {
@@ -133,9 +135,58 @@
             overflow: hidden;
             transition: max-height 0.3s ease-out;
         }
+
         .accordion-item.active .accordion-content {
-            max-height: 1000px; /* Adjust this value based on your content */
+            max-height: 1000px;
+            /* Adjust this value based on your content */
         }
+
+        /* 'green': "#142C16",
+                        'yellowMedium': "#FEBD05",
+                        'bgGreen': "#2C5C30",
+                        'lightWhite': "#ffffffba",
+                        'lightGreen': "#436545" */
+        .bg-green {
+            background-color: #142C16;
+        }
+
+        .text-green {
+            color: #142C16;
+        }
+
+        .bg-yellowMedium {
+            background-color: #FEBD05;
+        }
+
+        .text-yellowMedium {
+            color: #FEBD05;
+        }
+
+        .bg-bgGreen {
+            background-color: #2C5C30;
+        }
+
+        .text-bgGreen {
+            color: #2C5C30;
+        }
+
+        .bg-lightWhite {
+            background-color: #ffffffba;
+        }
+
+        .text-lightWhite {
+            color: #ffffffba;
+        }
+
+        .bg-lightGreen {
+            background-color: #436545;
+        }
+
+        .text-lightGreen {
+            color: #436545;
+        }
+
+
 
         @media (max-width: 768px) {
             .bg {
@@ -720,89 +771,132 @@
                     <img src="./Images/Home/decor.png" alt="">
                 </div>
             </div>
-            <h1 class="my-6 md:mb-12 text-yellowMedium w-full text-3xl md:text-4xl lg:text-7xl text-center font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">
+            <h1
+                class="my-6 md:mb-12 text-yellowMedium w-full text-3xl md:text-4xl lg:text-7xl text-center font-bold leading-[65px] md:leading-[55px] lg:leading-[85px] drop-shadow">
                 Frequently Asked Questions
             </h1>
             <div class="flex flex-col w-full bg-lightGreen rounded-xl p-2 pt-4 md:p-10 shadow-lg space-y-4 z-40">
                 <!-- Accordion Items -->
                 <div class="accordion-container space-y-4 z-20">
                     <div class="accordion-item flex flex-col border-b border-yellowMedium">
-                        <button class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
-                            <span class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What is Taksaal dictionary? What is it used for?</span>
+                        <button
+                            class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
+                            <span
+                                class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What
+                                is Taksaal dictionary? What is it used for?</span>
                             <i class="fas fa-plus md:text-2xl mt-1"></i>
                         </button>
-                        <div class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
-                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is used to look up word meanings, explore new vocabulary, and contribute to the growth of the Punjabi language database.</p>
+                        <div
+                            class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
+                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is
+                                used to look up word meanings, explore new vocabulary, and contribute to the growth of
+                                the Punjabi language database.</p>
                         </div>
                     </div>
                     <div class="accordion-item flex flex-col border-b border-yellowMedium">
-                        <button class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
-                            <span class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What is Taksaal dictionary? What is it used for?</span>
+                        <button
+                            class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
+                            <span
+                                class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What
+                                is Taksaal dictionary? What is it used for?</span>
                             <i class="fas fa-plus md:text-2xl mt-1"></i>
                         </button>
-                        <div class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
-                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is used to look up word meanings, explore new vocabulary, and contribute to the growth of the Punjabi language database.</p>
+                        <div
+                            class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
+                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is
+                                used to look up word meanings, explore new vocabulary, and contribute to the growth of
+                                the Punjabi language database.</p>
                         </div>
                     </div>
                     <div class="accordion-item flex flex-col border-b border-yellowMedium">
-                        <button class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
-                            <span class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What is Taksaal dictionary? What is it used for?</span>
+                        <button
+                            class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
+                            <span
+                                class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What
+                                is Taksaal dictionary? What is it used for?</span>
                             <i class="fas fa-plus md:text-2xl mt-1"></i>
                         </button>
-                        <div class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
-                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is used to look up word meanings, explore new vocabulary, and contribute to the growth of the Punjabi language database.</p>
+                        <div
+                            class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
+                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is
+                                used to look up word meanings, explore new vocabulary, and contribute to the growth of
+                                the Punjabi language database.</p>
                         </div>
                     </div>
                     <div class="accordion-item flex flex-col border-b border-yellowMedium">
-                        <button class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
-                            <span class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What is Taksaal dictionary? What is it used for?</span>
+                        <button
+                            class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
+                            <span
+                                class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What
+                                is Taksaal dictionary? What is it used for?</span>
                             <i class="fas fa-plus md:text-2xl mt-1"></i>
                         </button>
-                        <div class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
-                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is used to look up word meanings, explore new vocabulary, and contribute to the growth of the Punjabi language database.</p>
+                        <div
+                            class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
+                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is
+                                used to look up word meanings, explore new vocabulary, and contribute to the growth of
+                                the Punjabi language database.</p>
                         </div>
                     </div>
                     <div class="accordion-item flex flex-col border-b border-yellowMedium">
-                        <button class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
-                            <span class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What is Taksaal dictionary? What is it used for?</span>
+                        <button
+                            class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
+                            <span
+                                class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What
+                                is Taksaal dictionary? What is it used for?</span>
                             <i class="fas fa-plus md:text-2xl mt-1"></i>
                         </button>
-                        <div class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
-                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is used to look up word meanings, explore new vocabulary, and contribute to the growth of the Punjabi language database.</p>
+                        <div
+                            class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
+                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is
+                                used to look up word meanings, explore new vocabulary, and contribute to the growth of
+                                the Punjabi language database.</p>
                         </div>
                     </div>
                     <div class="accordion-item flex flex-col border-b border-yellowMedium">
-                        <button class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
-                            <span class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What is Taksaal dictionary? What is it used for?</span>
+                        <button
+                            class="w-full flex justify-between items-start text-lightWhite md:text-xl hover:opacity-75">
+                            <span
+                                class="font-medium text-sm md:text-xl md:font-semibold text-left text-lightwhite leading-0 -mb-2">What
+                                is Taksaal dictionary? What is it used for?</span>
                             <i class="fas fa-plus md:text-2xl mt-1"></i>
                         </button>
-                        <div class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
-                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is used to look up word meanings, explore new vocabulary, and contribute to the growth of the Punjabi language database.</p>
+                        <div
+                            class="accordion-content pt-3 md:pt-2 font-medium text-lightWhite italic mb-2 text-xs md:text-base">
+                            <p>Taksaal dictionary is a comprehensive online resource for the Punjabi language. It is
+                                used to look up word meanings, explore new vocabulary, and contribute to the growth of
+                                the Punjabi language database.</p>
                         </div>
                     </div>
-                   
+
                 </div>
-        
+
                 <!-- Show More Button -->
                 <div class="text-center py-3 md:pt-8 md:py-0 z-20">
-                    <button class="z-20 text-green bg-yellowMedium text-black font-semibold px-8 py-3 rounded-full inline-flex items-center gap-2 hover:bg-opacity-75">
+                    <button
+                        class="z-20 text-green bg-yellowMedium text-black font-semibold px-8 py-3 rounded-full inline-flex items-center gap-2 hover:bg-opacity-75">
                         Show more
                         <i class="fas fa-chevron-down"></i>
                     </button>
                 </div>
             </div>
-            <h1 class="mt-20 text-yellowMedium w-full text-3xl md:text-4xl lg:text-7xl text-center font-bold leading-[65px] md:leading-[0px] lg:leading-[85px] drop-shadow z-20">
+            <h1
+                class="mt-20 text-yellowMedium w-full text-3xl md:text-4xl lg:text-7xl text-center font-bold leading-[65px] md:leading-[0px] lg:leading-[85px] drop-shadow z-20">
                 Stay in the Loop
             </h1>
-            <p class="my-4 md:my-0 mt-0 lg:my-4 font-regular text-lightWhite text-xl z-20 md:text-2xl lg:text-4xl tracking-wide w-full text-center">
+            <p
+                class="my-4 md:my-0 mt-0 lg:my-4 font-regular text-lightWhite text-xl z-20 md:text-2xl lg:text-4xl tracking-wide w-full text-center">
                 Embrace the Colors of Punjabi Daily!
             </p>
             <div class="w-full flex items-center justify-center lg:my-12 z-20">
-                <div class="w-full md:w-[55%] bg-lightGreen bg-opacity-[35%] px-2 md:px-4 py-1 md:py-4 rounded-[75px] shadow-md flex items-center justify-between z-20">
-                    <p class="w-full font-regular text-lightWhite text-xs md:text-xl lg:text-2xl tracking-wide w-full text-left z-20">
+                <div
+                    class="w-full md:w-[55%] bg-lightGreen bg-opacity-[35%] px-2 md:px-4 py-1 md:py-4 rounded-[75px] shadow-md flex items-center justify-between z-20">
+                    <p
+                        class="w-full font-regular text-lightWhite text-xs md:text-xl lg:text-2xl tracking-wide w-full text-left z-20">
                         Enter your email address
                     </p>
-                    <button class="z-20 text-green bg-yellowMedium text-black font-semibold py-2 md:py-3 rounded-full items-center gap-2 hover:bg-opacity-75 text-xs md:text-base w-[150px] md:w-[200px] z-20">
+                    <button
+                        class="z-20 text-green bg-yellowMedium text-black font-semibold py-2 md:py-3 rounded-full items-center gap-2 hover:bg-opacity-75 text-xs md:text-base w-[150px] md:w-[200px] z-20">
                         Subscribe
                         <i class="fas fa-chevron-right"></i>
                     </button>
@@ -810,7 +904,7 @@
                 </div>
             </div>
         </section>
-        
+
     </main>
     <script>
         function toggleSidebar() {
